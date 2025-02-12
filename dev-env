@@ -50,4 +50,4 @@ copy_file() {
 	execute cp $from $to/$name
 }
 
-copy_dir env/.config $HOME/.config
+copy_dir ./env/.config $HOME/.config

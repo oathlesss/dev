@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
 
-echo "------------- installing tmux -------------"
+echo "------------- installing aerospace -------------"
 os_name="$(uname)"
 
 if [[ "$os_name" == "Darwin" ]]; then
   echo "Running macOS-specific code..."
-  brew install tmux
+  brew install --cask nikitabobko/tap/aerospace
 elif [[ "$os_name" == "Linux" ]]; then
   echo "Running Linux-specific code..."
 else
   echo "Unsupported operating system: $os_name"
   exit 1
 fi
-
-echo "------------- installing tmux tpm -------------"
-brew install tpm

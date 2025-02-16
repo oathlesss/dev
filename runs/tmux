@@ -1,22 +1,21 @@
 #!/usr/bin/env bash
 
-git clone -b v0.10.4 https://github.com/neovim/neovim.git $HOME/projects/personal/neovim
+git clone -b tmux-3-5a https://github.com/tmux/tmux.git $HOME/projects/persoanl/tmux
 
 echo "------------- installing neovim -------------"
 os_name="$(uname)"
 
 if [[ "$os_name" == "Darwin" ]]; then
   echo "Running macOS-specific code..."
-  brew install ninja cmake gettext curl
+  brew install autoconf automake pkg-config
 elif [[ "$os_name" == "Linux" ]]; then
   echo "Running Linux-specific code..."
-  sudo apt -y install cmake gettext lua5.1 liblua5.1-0-dev
+  sudo apt -y install autoconf automake pkg-config
 else
   echo "Unsupported operating system: $os_name"
   exit 1
 fi
 
-cd $HOME/projects/personal/neovim
-make clean
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make install
+cd $HOME/projects/personal/tmux
+sh autogen.sh
+./configure && make

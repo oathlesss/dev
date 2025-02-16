@@ -42,12 +42,7 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Aliasses
-alias cfdn="sshuttle @/Users/rubenhesselink/.ssh/sshuttle.conf"
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+bindkey -s ^f "tmux-sessionizer.sh\n"
 
 alias vim="nvim"
 alias vi="nvim"

@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
 
-git clone -b v0.10.4 https://github.com/neovim/neovim.git $HOME/projects/personal/neovim
+version="nightly"
 
-echo "------------- installing neovim -------------"
+echo "------------- installing neovim version \"$version\" -------------"
+
+if [ ! -d $HOME/neovim ]; then
+  git clone https://github.com/neovim/neovim.git $HOME/neovim
+fi
+
+git -C ~/neovim fetch --all
+git -C ~/neovim checkout $version
+
 os_name="$(uname)"
 
 if [[ "$os_name" == "Darwin" ]]; then
@@ -16,7 +24,6 @@ else
   exit 1
 fi
 
-cd $HOME/projects/personal/neovim
-make clean
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make install
+make -C ~/neovim clean
+make -C ~/neovim CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make -C ~/neovim install

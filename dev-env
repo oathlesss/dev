@@ -51,4 +51,5 @@ copy_file() {
 }
 
 copy_file ./env/.zshrc $HOME
+copy_file ./env/tmux-sessionizer.sh $HOME/.local/bin
 copy_dir ./env/.config $HOME/.config

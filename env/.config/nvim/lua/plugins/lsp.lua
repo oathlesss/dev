@@ -8,8 +8,8 @@ return {
             basedpyright = {
               analysis = {
                 autoSearchPaths = true,
-                typeCheckingMode = "basic",
-                ignore = { "*" },
+                typeCheckingMode = "off",
+                -- ignore = { "*" },
                 disableOrganizeImports = true,
                 diagnosticMode = "workspace",
               },

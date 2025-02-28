@@ -7,11 +7,9 @@ return {
           settings = {
             basedpyright = {
               analysis = {
-                autoSearchPaths = true,
                 typeCheckingMode = "off",
-                -- ignore = { "*" },
+                ignore = { "*" },
                 disableOrganizeImports = true,
-                diagnosticMode = "workspace",
               },
             },
           },

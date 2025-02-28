@@ -2,6 +2,13 @@ return {
   {
     "snacks.nvim",
     opts = {
+      zen = {
+        win = {
+          backdrop = {
+            transparent = false,
+          },
+        },
+      },
       dashboard = {
         preset = {
           pick = function(cmd, opts)
@@ -28,6 +35,12 @@ return {
           },
         },
       },
+    },
+  },
+  {
+    "folke/which-key.nvim",
+    opts = {
+      preset = "modern",
     },
   },
 }

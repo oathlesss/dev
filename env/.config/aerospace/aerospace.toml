@@ -66,10 +66,10 @@ alt-equal = 'resize smart +50'
 alt-1 = 'workspace 1' # Terminal
 alt-2 = 'workspace 2' # Web
 alt-3 = 'workspace 3' # 1Password
-alt-s = 'workspace 4' # Slack
-alt-p = 'workspace 5'
-alt-c = 'workspace 6'
-alt-m = 'workspace 7'
+alt-4 = 'workspace 4' # Slack
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'

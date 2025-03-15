@@ -12,7 +12,7 @@ session_name=$(basename "$session" | tr . _)
 
 if ! tmux has-session -t "=$session_name" 2>/dev/null; then
   tmux new-session -s "$session_name" -c "$session" -n "code" -d
-  tmux send-keys -t "$session_name:1" "source env/bin/activate" Enter
+  tmux send-keys -t "$session_name:1" "source env/bin/activate.fish" Enter
   tmux send-keys -t "$session_name:1" "nvim" Enter
   tmux new-window -n "scratch" -c "$session" -t "$session_name"
 

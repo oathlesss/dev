@@ -1,28 +1,29 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 
-version="nightly"
+set version "nightly"
 
 echo "------------- installing neovim version \"$version\" -------------"
 
-if [ ! -d $HOME/neovim ]; then
-  git clone https://github.com/neovim/neovim.git $HOME/neovim
-fi
+if not test -d $HOME/neovim
+    git clone https://github.com/neovim/neovim.git $HOME/neovim
+end
 
 git -C ~/neovim fetch --all
 git -C ~/neovim checkout $version
 
-os_name="$(uname)"
+set os_name (uname)
 
-if [[ "$os_name" == "Darwin" ]]; then
-  echo "Running macOS-specific code..."
-  brew install ninja cmake gettext curl
-elif [[ "$os_name" == "Linux" ]]; then
-  echo "Running Linux-specific code..."
-  sudo apt -y install cmake gettext lua5.1 liblua5.1-0-dev
-else
-  echo "Unsupported operating system: $os_name"
-  exit 1
-fi
+switch $os_name
+    case "Darwin"
+        echo "Running macOS-specific code..."
+        brew install ninja cmake gettext curl
+    case "Linux"
+        echo "Running Linux-specific code..."
+        sudo apt -y install cmake gettext lua5.1 liblua5.1-0-dev
+    case '*'
+        echo "Unsupported operating system: $os_name"
+        exit 1
+end
 
 make -C ~/neovim clean
 make -C ~/neovim CMAKE_BUILD_TYPE=RelWithDebInfo
